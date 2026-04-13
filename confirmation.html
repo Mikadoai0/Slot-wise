@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmed — Slotwise</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/confirmation.css"/>
+</head>
+<body class="page-transition">
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <div class="logo-mark">SW</div><span>Slotwise</span>
+    </a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="booking.html">Book</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+    <div class="navbar-right">
+      <button class="theme-toggle" id="themeToggle">◐</button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="booking.html">Book</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <main class="conf-page">
+
+    <!-- Left -->
+    <div class="conf-left">
+      <div class="conf-left-top">
+        <div class="cl-eyebrow">Booking Confirmed</div>
+        <h1 class="cl-title">You're<br><em>all</em><br>booked.</h1>
+        <p class="cl-sub">Your appointment is locked in and saved to your dashboard. We'll see you then.</p>
+        <div class="conf-check-wrap">
+          <div class="conf-check-circle">
+            <svg class="checkmark" viewBox="0 0 52 52" fill="none">
+              <circle class="checkmark-circle" cx="26" cy="26" r="24" stroke-width="1.5"/>
+              <path class="checkmark-check" d="M14 26l8 8 16-16" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="conf-check-text">
+            <h3>Appointment secured</h3>
+            <p>Saved instantly — no email needed</p>
+          </div>
+        </div>
+      </div>
+      <div class="conf-left-bottom">
+        <div class="conf-id-block">
+          <div class="conf-id-label">Booking Reference</div>
+          <div class="conf-id-code" id="conf-id">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="conf-right">
+      <h2 class="conf-details-title">Booking Summary</h2>
+      <div class="conf-detail-list">
+        <div class="conf-detail-item">
+          <span class="cdi-key">Name</span>
+          <span class="cdi-val" id="conf-name">—</span>
+        </div>
+        <div class="conf-detail-item">
+          <span class="cdi-key">Email</span>
+          <span class="cdi-val" id="conf-email">—</span>
+        </div>
+        <div class="conf-detail-item">
+          <span class="cdi-key">Phone</span>
+          <span class="cdi-val" id="conf-phone">—</span>
+        </div>
+        <div class="conf-detail-item">
+          <span class="cdi-key">Service</span>
+          <span class="cdi-val" id="conf-service">—</span>
+        </div>
+        <div class="conf-detail-item">
+          <span class="cdi-key">Date</span>
+          <span class="cdi-val" id="conf-date">—</span>
+        </div>
+        <div class="conf-detail-item">
+          <span class="cdi-key">Time</span>
+          <span class="cdi-val" id="conf-time">—</span>
+        </div>
+      </div>
+      <div class="conf-actions">
+        <a href="dashboard.html" class="btn btn-primary btn-lg">View Dashboard →</a>
+        <a href="booking.html" class="btn btn-outline">+ Another Booking</a>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="toast-container"></div>
+  <script src="js/utils.js"></script>
+  <script src="js/confirmation.js"></script>
+</body>
+</html>

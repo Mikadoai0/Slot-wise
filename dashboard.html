@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — Slotwise</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/dashboard.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body class="page-transition">
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <div class="logo-mark">SW</div><span>Slotwise</span>
+    </a>
+    <div class="navbar-links">
+      <a href="index.html">Home</a>
+      <a href="booking.html">Book</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+    </div>
+    <div class="navbar-right">
+      <button class="theme-toggle" id="themeToggle">◐</button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="booking.html">Book</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+
+  <div class="dash-layout">
+
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="ds-brand">
+        <div class="logo-mark">SW</div>
+        <span class="ds-brand-text">Slotwise</span>
+      </div>
+      <nav class="ds-nav">
+        <a href="#" class="ds-link active">
+          <span class="ds-icon">▦</span><span class="ds-label">Overview</span>
+        </a>
+        <a href="booking.html" class="ds-link">
+          <span class="ds-icon">+</span><span class="ds-label">New Booking</span>
+        </a>
+        <a href="index.html" class="ds-link">
+          <span class="ds-icon">↗</span><span class="ds-label">Home</span>
+        </a>
+      </nav>
+      <div class="ds-footer">
+        <button class="ds-collapse-btn" id="sidebarToggle">◀</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="dash-main" id="dashMain">
+
+      <header class="dash-topbar">
+        <div class="dash-topbar-left">
+          <button class="btn btn-ghost btn-icon btn-sm" id="mobileSidebarToggle">☰</button>
+          <div>
+            <div class="topbar-title">Dashboard</div>
+            <div class="topbar-subtitle">All your bookings, at a glance</div>
+          </div>
+        </div>
+        <div class="dash-topbar-right">
+          <div class="search-wrap">
+            <span class="search-ico">⌕</span>
+            <input class="search-inp" id="searchInput" type="text" placeholder="Search bookings…"/>
+          </div>
+          <a href="booking.html" class="btn btn-primary btn-sm">+ New Slot</a>
+        </div>
+      </header>
+
+      <div class="dash-content">
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-cell">
+            <div class="sc-label">Total Bookings</div>
+            <div class="sc-num" id="stat-total">0</div>
+            <span class="sc-trend up">↑ +12%</span>
+          </div>
+          <div class="stat-cell">
+            <div class="sc-label">Completed</div>
+            <div class="sc-num" id="stat-done">0</div>
+            <span class="sc-trend up">↑ +8%</span>
+          </div>
+          <div class="stat-cell">
+            <div class="sc-label">Pending</div>
+            <div class="sc-num" id="stat-pending">0</div>
+            <span class="sc-trend neu">— same</span>
+          </div>
+          <div class="stat-cell">
+            <div class="sc-label">Services</div>
+            <div class="sc-num" id="stat-svcs">0</div>
+            <span class="sc-trend up">↑ active</span>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-row">
+          <div class="chart-panel">
+            <div class="chart-panel-header">
+              <h3 class="chart-panel-title">Booking Volume</h3>
+              <span class="badge badge-ink">Last 7 Days</span>
+            </div>
+            <div class="chart-area">
+              <canvas id="trendChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-panel">
+            <div class="chart-panel-header">
+              <h3 class="chart-panel-title">By Service</h3>
+              <span class="badge badge-rust">All Time</span>
+            </div>
+            <div class="chart-area chart-area-sm">
+              <canvas id="pieChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="section-row">
+          <h2 class="section-row-title">All Bookings</h2>
+          <div class="filters">
+            <select class="filter-sel" id="filterStatus">
+              <option value="">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+            </select>
+            <select class="filter-sel" id="filterService">
+              <option value="">All Services</option>
+              <option value="Consultation">Consultation</option>
+              <option value="Strategy Session">Strategy Session</option>
+              <option value="Deep Dive">Deep Dive</option>
+              <option value="Quick Check-in">Quick Check-in</option>
+              <option value="Workshop">Workshop</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bookings-table-wrap">
+          <div class="table-head">
+            <div class="th">#</div>
+            <div class="th">Client</div>
+            <div class="th">Service</div>
+            <div class="th">Date</div>
+            <div class="th">Time</div>
+            <div class="th">Status</div>
+            <div class="th">Actions</div>
+          </div>
+          <div id="bookingsList"></div>
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display:none">
+          <div class="empty-state-icon">∅</div>
+          <h3>No bookings found</h3>
+          <p>Try clearing your filters, or create your first booking now.</p>
+          <a href="booking.html" class="btn btn-primary" style="margin-top:16px">Book a Slot →</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal-backdrop" id="deleteModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Delete this booking?</h3>
+        <button class="modal-close" id="deleteModalClose">✕</button>
+      </div>
+      <p style="font-size:14px; color:var(--ink-2); line-height:1.6">This action is permanent and cannot be undone. The booking record will be removed from your dashboard immediately.</p>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="deleteCancelBtn">Cancel</button>
+        <button class="btn btn-danger" id="deleteConfirmBtn">Delete Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal-backdrop" id="editModal">
+    <div class="modal" style="max-width:500px">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Booking</h3>
+        <button class="modal-close" id="editModalClose">✕</button>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" id="edit-name"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" id="edit-email"/>
+        </div>
+        <div class="form-group" style="grid-column:1/-1">
+          <label class="form-label">Service</label>
+          <select class="form-control" id="edit-service">
+            <option value="Consultation">Consultation</option>
+            <option value="Strategy Session">Strategy Session</option>
+            <option value="Deep Dive">Deep Dive</option>
+            <option value="Quick Check-in">Quick Check-in</option>
+            <option value="Workshop">Workshop</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date</label>
+          <input type="date" class="form-control" id="edit-date"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Time</label>
+          <input type="text" class="form-control" id="edit-time" placeholder="e.g. 2:00 PM"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="editCancelBtn">Cancel</button>
+        <button class="btn btn-primary" id="editSaveBtn">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+  <script src="js/utils.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

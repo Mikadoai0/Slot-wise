@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slotwise — Appointment Scheduling</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/landing.css"/>
+</head>
+<body class="page-transition">
+
+  <nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+      <div class="logo-mark">SW</div>
+      <span>Slotwise</span>
+    </a>
+    <div class="navbar-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="booking.html">Book</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+    <div class="navbar-right">
+      <button class="theme-toggle" id="themeToggle" title="Toggle theme">◐</button>
+      <a href="booking.html" class="btn btn-primary btn-sm">Book a Slot</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="booking.html">Book</a>
+    <a href="dashboard.html">Dashboard</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-issue reveal">
+        <span class="hero-issue-num">Scheduling — Reimagined</span>
+        <div class="hero-issue-line"></div>
+        <span class="hero-issue-num">Est. 2026</span>
+      </div>
+
+      <h1 class="hero-headline reveal reveal-delay-1">
+        Book<br>
+        <em>any</em><br>
+        <span class="underline-word">appointment</span><br>
+        in seconds.
+      </h1>
+
+      <div class="hero-divider reveal reveal-delay-2"></div>
+      <p class="hero-sub reveal reveal-delay-2">
+        Slotwise eliminates the back-and-forth. Your clients pick a time, you show up — everything else is handled.
+      </p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="booking.html" class="btn btn-rust btn-lg">Book Your First Slot →</a>
+        <a href="dashboard.html" class="btn btn-outline btn-lg">View Dashboard</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-right-top">
+        <div class="hero-big-num reveal" id="heroCount">12,849</div>
+        <div class="hero-big-num-label reveal reveal-delay-1">Appointments scheduled</div>
+
+        <div class="booking-preview reveal reveal-delay-2">
+          <div class="bp-header">
+            <span class="bp-title">This Week</span>
+            <span class="badge badge-sage">● Live</span>
+          </div>
+          <div class="bp-date-row">
+            <div class="bp-date-pill">Mon</div>
+            <div class="bp-date-pill active">Tue</div>
+            <div class="bp-date-pill">Wed</div>
+            <div class="bp-date-pill">Thu</div>
+            <div class="bp-date-pill">Fri</div>
+          </div>
+          <div class="bp-slots">
+            <div class="bp-slot taken"><span>9:00 AM</span><span class="bp-slot-status">Booked</span></div>
+            <div class="bp-slot taken"><span>10:30 AM</span><span class="bp-slot-status">Booked</span></div>
+            <div class="bp-slot avail"><span>1:00 PM</span><span class="bp-slot-status">Available</span></div>
+            <div class="bp-slot avail"><span>2:30 PM</span><span class="bp-slot-status">Available</span></div>
+            <div class="bp-slot taken"><span>4:00 PM</span><span class="bp-slot-status">Booked</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right-bottom reveal reveal-delay-3">
+        <div class="hero-stat-block">
+          <div class="hero-stat-num count-up" data-target="98">0</div>
+          <div class="hero-stat-label">% Satisfaction</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat-block">
+          <div class="hero-stat-num count-up" data-target="500">0</div>
+          <div class="hero-stat-label">Businesses</div>
+        </div>
+        <div class="hero-stat-sep"></div>
+        <div class="hero-stat-block">
+          <div class="hero-stat-num">&lt; 60<span style="font-size:0.55em">s</span></div>
+          <div class="hero-stat-label">Avg. Book Time</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES ── -->
+  <section class="features-section">
+    <div class="features-header">
+      <div class="features-header-left">
+        <div class="section-num reveal">01</div>
+        <h2 class="section-title-editorial reveal reveal-delay-1">What makes<br><em>Slotwise</em><br>different</h2>
+      </div>
+      <div class="features-header-right">
+        <p class="reveal reveal-delay-1">
+          We stripped away everything that clutters other booking tools — leaving only what actually matters. The result is something that just works, beautifully.
+        </p>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item reveal">
+        <span class="fi-num">01</span>
+        <span class="fi-arrow">↗</span>
+        <h3 class="fi-title">Instant Booking</h3>
+        <p class="fi-desc">Three steps, under 60 seconds. No account required. No friction between your client and a confirmed slot.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-1">
+        <span class="fi-num">02</span>
+        <span class="fi-arrow">↗</span>
+        <h3 class="fi-title">Live Conflict Guard</h3>
+        <p class="fi-desc">Booked slots are locked in real time. No doubles, no overlaps — ever. Your calendar stays clean automatically.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-2">
+        <span class="fi-num">03</span>
+        <span class="fi-arrow">↗</span>
+        <h3 class="fi-title">Rich Dashboard</h3>
+        <p class="fi-desc">Visual trends, service breakdowns, and full booking history — all filterable, searchable, and editable in one place.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-1">
+        <span class="fi-num">04</span>
+        <span class="fi-arrow">↗</span>
+        <h3 class="fi-title">Zero Backend</h3>
+        <p class="fi-desc">All data lives in your browser. No server, no sign-up, no subscription. Just open and run.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-2">
+        <span class="fi-num">05</span>
+        <span class="fi-arrow">↗</span>
+        <h3 class="fi-title">Light & Dark</h3>
+        <p class="fi-desc">A refined dual-theme experience. Your preference is remembered across every page visit.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-3">
+        <span class="fi-num">06</span>
+        <span class="fi-arrow">↗</span>
+        <h3 class="fi-title">Mobile Ready</h3>
+        <p class="fi-desc">Designed from the ground up to work flawlessly on every screen size — phone, tablet, desktop.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="hiw-section">
+    <div class="hiw-left reveal">
+      <div>
+        <div class="section-num">02</div>
+        <h2 class="section-title-editorial">Three<br>simple<br>steps.</h2>
+      </div>
+      <div class="hiw-cta-block">
+        <p class="hiw-quote">"The fastest way to fill your calendar."</p>
+        <p class="hiw-quote-credit">— Our users, consistently</p>
+        <div style="margin-top:28px">
+          <a href="booking.html" class="btn btn-primary">Try It Now →</a>
+        </div>
+      </div>
+    </div>
+    <div class="hiw-right">
+      <div class="hiw-steps">
+        <div class="hiw-step reveal">
+          <div class="hiw-step-num">I.</div>
+          <div class="hiw-step-body">
+            <h3>Enter Your Details</h3>
+            <p>Your name, email address, and phone number. That's the entire first step. Quick, clean, done.</p>
+          </div>
+        </div>
+        <div class="hiw-step reveal reveal-delay-1">
+          <div class="hiw-step-num">II.</div>
+          <div class="hiw-step-body">
+            <h3>Choose Your Slot</h3>
+            <p>Pick a service type, select a date, then tap any available time. Already-booked slots are clearly marked so there's no guessing.</p>
+          </div>
+        </div>
+        <div class="hiw-step reveal reveal-delay-2">
+          <div class="hiw-step-num">III.</div>
+          <div class="hiw-step-body">
+            <h3>Confirm & You're Done</h3>
+            <p>Review your booking summary and hit confirm. Your appointment is instantly saved to the dashboard — no email, no waiting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="navbar-brand">
+      <div class="logo-mark">SW</div>
+      <span>Slotwise</span>
+    </div>
+    <p class="footer-copy">© 2026 Slotwise. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="booking.html">Book</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+  </footer>
+
+  <div id="toast-container"></div>
+  <script src="js/utils.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+</html>
